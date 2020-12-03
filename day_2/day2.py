@@ -2,7 +2,7 @@ import os
 import re
 PATH = os.path.join(os.getcwd(), 'day_2\\input.txt')
 
-class Day2_p1:        
+class Day2_p1:
     def doTheThing(self):
         count = 0
         with open(PATH, 'r') as f:
@@ -20,7 +20,7 @@ class Day2_p1:
                     count += 1
         return count
 
-class Day2_p2:        
+class Day2_p2:
     def doTheThing(self):
         count = 0
         with open(PATH, 'r') as f:
@@ -30,7 +30,7 @@ class Day2_p2:
                 rules = splitLine[0].split(' ')
                 positions = list(map(int, rules[0].split('-')))
                 password = splitLine[1]
-                
+
                 # check to make sure the password is long enough to begin with
                 # then just make sure the booleans are different (ie: T/F, not T/T or F/F)
                 if len(password) >= positions[1]:

@@ -1,7 +1,7 @@
 import os
 PATH = os.path.join(os.getcwd(), 'day_1\\input.txt')
 
-class Day1_p1:        
+class Day1_p1:
     def doTheThing(self):
         dic = {}
         with open(PATH, 'r') as f:
