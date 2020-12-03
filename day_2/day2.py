@@ -7,11 +7,16 @@ class Day2_p1:
         count = 0
         with open(PATH, 'r') as f:
             for line in f:
+                # chop up the line into rules and limits
                 splitLine = line.rstrip().split(': ')
                 rules = splitLine[0].split(' ')
-                limits =  rules[0].split('-')
+                limits = list(map(int, rules[0].split('-')))
+
+                # find all target character matches
                 matches = re.findall(rules[1], splitLine[1])
-                if int(limits[0]) <= len(matches) and len(matches) <= int(limits[1]):
+
+                # make sure the match count is between the bounds
+                if limits[0] <= len(matches) and len(matches) <= limits[1]:
                     count += 1
         return count
 
