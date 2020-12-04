@@ -7,12 +7,13 @@ class Day3_p1:
         trees = 0
         with open(PATH, 'r') as f:
             # read line one because we need to know the line length
+            # and we don't want to consider the starting line for tree counting
             lineLength = len(f.readline().rstrip())
             # then iterate through the rest of the lines (moving down the slope one step at a time)
             for line in f:
                 # advance the player to the right three spaces
-                # then mod the player position to loop back to the start of the line
-                # (ie. starting on the next tile to the right)
+                # then mod (%) the player position to loop back to the start of the line if necessary
+                # (ie. moving to the next mapt tile to the right)
                 playerPosition = (3 + playerPosition) % lineLength
                 # check for trees
                 if line[playerPosition] == '#':
@@ -27,10 +28,9 @@ class Day3_p2:
         with open(PATH, 'r') as f:
             lineLength = len(f.readline().rstrip())
             for line in f:
-
-                # this time the right rate comes from the function call
+                # this time the right movement rate comes from the function call
                 playerPosition = (rightRate + playerPosition) % lineLength
-                # and we can skip extra lines per the downrate
+                # and we can skip extra lines based on the downrate
                 # starting at 1 because of how numbers work
                 for downMovement in range(1, downRate):
                     line = f.readline()
