@@ -13,7 +13,7 @@ class Day3_p1:
             for line in f:
                 # advance the player to the right three spaces
                 # then mod (%) the player position to loop back to the start of the line if necessary
-                # (ie. moving to the next mapt tile to the right)
+                # (ie. moving right to the next duplicated map tile)
                 playerPosition = (3 + playerPosition) % lineLength
                 # check for trees
                 if line[playerPosition] == '#':
